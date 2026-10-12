@@ -1,0 +1,33 @@
+@startuml
+title satellite-sim - System Context
+left to right direction
+actor "Flight Controller" as Operator
+rectangle "Mission Control (MCS)" as MCS {
+  component "Command Planner" as Planner
+  component "Telemetry Console" as Console
+  database "Mission Archive" as Archive
+}
+rectangle "Simulated DSN" as DSN {
+  component "Station Scheduler" as Scheduler
+  component "Uplink Processor" as Uplink
+  component "Downlink Processor" as Downlink
+  component "Station Monitor (MON)" as MON
+}
+rectangle "Voyager Spacecraft Model" as SC {
+  component "CCS 18-bit" as CCS
+  component "FDS 16-bit" as FDS
+  component "AACS 18-bit" as AACS
+  component "Onboard Sequence Store" as Seq
+}
+Operator --> Planner
+Operator --> Console
+Planner --> Scheduler : command products
+Scheduler --> Uplink
+Uplink --> CCS : delayed uplink
+CCS --> Seq : schedule actions
+FDS --> Downlink : telemetry stream
+Downlink --> Console
+Downlink --> Archive
+MON --> Console : station health
+AACS --> CCS : subsystem status/events
+@enduml
