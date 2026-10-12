@@ -1,0 +1,3 @@
+telemetry_id,spacecraft_key,ground_station,sequence_no,packet_type,received_at,spacecraft_time_ms,signal_dbm,metric_name,metric_value,unit,status
+1,SAT-001,GS-001,1,STATUS,2026-10-11T21:00:00.000000,1000,-82.50,power,100,percent,OK
+2,SAT-001,GS-001,2,STATUS,2026-10-11T21:00:01.000000,2000,-82.70,uptime,1,seconds,OK
