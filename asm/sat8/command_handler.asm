@@ -1,0 +1,8 @@
+; 8-bit command handler
+COMMAND_LOOP:
+    IN R0, 2
+    JNZ R0, DISPATCH
+    JMP COMMAND_LOOP
+DISPATCH:
+    OUT R0, 3
+    JMP COMMAND_LOOP
