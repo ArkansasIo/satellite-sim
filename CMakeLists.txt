@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(satellite_core
   src/core/cpu.cpp src/core/assembler.cpp src/core/radio_link.cpp
-  src/core/spacecraft.cpp src/core/ground_station.cpp)
+  src/core/spacecraft.cpp src/core/ground_station.cpp
+  src/core/fleet.cpp src/core/mission_bus.cpp src/core/memory.cpp
+  src/core/patch.cpp src/core/update.cpp)
 target_include_directories(satellite_core PUBLIC include)
 add_executable(satellite_sim src/main.cpp)
 target_link_libraries(satellite_sim PRIVATE satellite_core)
