@@ -1,0 +1,6 @@
+name: voyager-style
+cpu_width: 18
+memory: magnetic-core-style
+command_interface: dos-compat
+telemetry: deep-space
+update_strategy: staged-patch
