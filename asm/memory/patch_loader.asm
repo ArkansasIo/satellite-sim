@@ -1,0 +1,8 @@
+; Assembly patch loader
+PATCH_WAIT:
+    IN R0, 14
+    JNZ R0, PATCH_APPLY
+    JMP PATCH_WAIT
+PATCH_APPLY:
+    OUT R0, 15
+    JMP PATCH_WAIT
