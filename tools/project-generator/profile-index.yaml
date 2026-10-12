@@ -1,0 +1,12 @@
+generator_version: "1.0"
+profiles:
+  mvp:
+    purpose: "End-to-end prototype"
+    source_profile: "tools/project-generator/profiles/mvp.yaml"
+  commercial:
+    purpose: "Commercial platform"
+    source_profile: "tools/project-generator/profiles/commercial.yaml"
+  extended:
+    purpose: "Expanded research and engineering platform"
+    source_profile: "tools/project-generator/profiles/extended.yaml"
+generated_root: "generated/project"
