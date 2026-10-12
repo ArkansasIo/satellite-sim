@@ -1,0 +1,6 @@
+regions:
+  - {name: boot_rom, origin: 0, words: 64, persistent: true}
+  - {name: flight_code, origin: 64, words: 96, persistent: true}
+  - {name: telemetry, origin: 160, words: 32, persistent: true}
+  - {name: command_queue, origin: 192, words: 32, persistent: false}
+  - {name: scratch, origin: 224, words: 32, persistent: false}
