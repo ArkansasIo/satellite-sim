@@ -1,0 +1,5 @@
+cpu_width: 18
+memory_words: 256
+telemetry_period_s: 1
+command_timeout_s: 60
+safe_mode_on_fault: true
