@@ -1,0 +1,4 @@
+spacecraft_key,sequence_no,subsystem_id,metric_name,raw_value,engineering_value,unit,quality,onboard_tick,downlink_state
+SAT-001,1,POWER,battery_percent,100,100,percent,VALID,1000,PENDING
+SAT-001,2,CPU,uptime_seconds,1,1,seconds,VALID,1000,PENDING
+SAT-001,3,THERMAL,temperature,215,21.5,C,VALID,1000,PENDING
