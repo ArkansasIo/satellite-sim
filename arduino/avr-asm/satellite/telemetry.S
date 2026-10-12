@@ -1,4 +1,4 @@
-; SAT-ASM telemetry encoder.
+; SAT-ASM telemetry scheduler/encoder boundary.
 .include "common/atmega328p.inc"
 .include "common/protocol.inc"
 
@@ -6,7 +6,6 @@
 .global telemetry_emit_status
 
 telemetry_emit_status:
-    ; Demonstration encoder entry point.
-    ; r22 contains simulated power (0..100).
-    ; Full framing/CRC serialization is implemented as the next layer.
+    ; r22 = simulated power.
+    ; Frame serializer and CRC are separate so the encoder can be tested.
     ret
