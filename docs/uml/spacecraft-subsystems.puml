@@ -1,0 +1,33 @@
+@startuml
+title Voyager-inspired onboard subsystem model
+skinparam componentStyle rectangle
+package "Computer Command System (CCS)" {
+  component "CCS-A : 18-bit" as CCSA
+  component "CCS-B : 18-bit" as CCSB
+  note right of CCSA
+    Sequencing, command decoding,
+    documented fault-response model
+  end note
+}
+package "Flight Data System (FDS)" {
+  component "FDS-A : 16-bit" as FDSA
+  component "FDS-B : 16-bit" as FDSB
+  note right of FDSA
+    Instrument/data handling,
+    telemetry formatting, onboard time model
+  end note
+}
+package "Attitude and Articulation Control System (AACS)" {
+  component "AACS-A : 18-bit" as AACSA
+  component "AACS-B : 18-bit" as AACSB
+  note right of AACSA
+    Attitude, antenna pointing,
+    maneuvers and scan-platform behavior
+  end note
+}
+CCSA --> FDSA : configuration/telemetry requests
+CCSA --> AACSA : pointing/maneuver requests
+CCSB .. CCSA : modeled pair relation
+FDSB .. FDSA : modeled pair relation
+AACSB .. AACSA : modeled pair relation
+@enduml
