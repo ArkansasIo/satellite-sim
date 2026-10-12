@@ -1,0 +1,15 @@
+version: "1.0"
+currency: "CAD"
+
+scenarios:
+  MVP:
+    duration_months: 12
+    personnel_range: "1.5M-2.2M/year"
+    total_range: "1.8M-3.1M/year"
+  Commercial:
+    duration_months: 24
+    personnel_range: "4.5M-7.5M/18-24 months"
+    total_range: "6M-10M"
+
+generator:
+  output_directory: generated/planning
