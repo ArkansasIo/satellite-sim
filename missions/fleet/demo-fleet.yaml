@@ -1,0 +1,14 @@
+fleet: deep-space-demo
+satellites:
+  - id: VOYAGER-SIM-01
+    profile: voyager-style
+    cpu: sat18
+    role: deep-space-relay
+  - id: MODERN-SIM-01
+    profile: modern
+    cpu: sat64
+    role: science-platform
+  - id: MODERN-SIM-02
+    profile: modern
+    cpu: sat64
+    role: communications-relay
