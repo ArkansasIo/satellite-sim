@@ -1,0 +1,19 @@
+scenario,role,count,estimated_loaded_cost_cad_per_year,notes
+MVP,Technical Lead,1,220000,Architecture and systems ownership
+MVP,C++ Simulation Engineer,2,190000,Simulation and spacecraft models
+MVP,Backend Database Engineer,1,180000,API and ground data
+MVP,Frontend UI Engineer,1,170000,Mission control interface
+MVP,Embedded AVR Engineer,1,180000,Arduino and ATmega328P
+MVP,QA DevOps Engineer,1,140000,CI testing deployment
+Commercial,Technical Lead Architect,1,220000,Architecture
+Commercial,C++ Simulation Engineer,2,190000,Simulation
+Commercial,Embedded AVR Engineer,2,180000,Firmware
+Commercial,Backend Database Engineer,2,180000,Ground platform
+Commercial,Frontend UI Engineer,2,170000,UI
+Commercial,Security Engineer,1,210000,Security
+Commercial,DevOps Cloud Engineer,1,185000,Infrastructure
+Commercial,QA Test Engineer,2,140000,Quality
+Commercial,Telemetry Data Engineer,1,175000,Telemetry and data
+Commercial,Aerospace Mission Specialist,1,200000,Mission systems
+Commercial,Technical Writer,1,130000,Documentation
+Commercial,Product Project Manager,1,170000,Product delivery
