@@ -1,0 +1,9 @@
+name: modern-nv-storage
+version: 1.0.0
+technology: virtual-flash-nvram
+target: modern
+features:
+  - staged-update
+  - rollback-metadata
+  - checksum
+  - versioning
