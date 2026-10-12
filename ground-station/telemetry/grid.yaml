@@ -1,0 +1,15 @@
+columns:
+  - satellite_id
+  - cpu_width
+  - gps_latitude_deg
+  - gps_longitude_deg
+  - altitude_km
+  - velocity_km_s
+  - link
+  - one_way_delay_s
+  - signal_dbm
+  - power_percent
+  - thermal_c
+  - antenna
+  - fault_state
+  - packets
