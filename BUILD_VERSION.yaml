@@ -1,0 +1,28 @@
+product: satellite-sim
+version: 0.4.0
+version_scheme: semantic-versioning
+release_channel: development
+build:
+  api_version: 1
+  simulator_protocol_version: 1
+  voyager_model_version: 0.1.0
+  ground_system_model_version: 0.1.0
+  generic_cpu_model_version: 1.0.0
+  telemetry_schema_version: 1
+  command_schema_version: 1
+  build_reproducibility: deterministic-when-source-and-toolchain-match
+  git_commit: runtime-injected
+  build_timestamp_utc: runtime-injected
+  compiler: runtime-injected
+  compiler_version: runtime-injected
+  platform: runtime-injected
+  architecture: runtime-injected
+profiles:
+  - generic
+  - voyager-simulation
+  - ground-station
+  - modern-spacecraft
+fidelity:
+  historical_voyager: public-source-grounded-reconstruction
+  operational_ground_system: functional-simulation
+  real_spacecraft_control: disabled
