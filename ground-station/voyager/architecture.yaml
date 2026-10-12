@@ -1,0 +1,66 @@
+schema_version: 1
+profile: voyager-ground-system-simulation
+status: architecture-specification
+mode: simulated-only
+time:
+  clock: deterministic-mission-clock
+  utc_and_mission_time_are_distinct: true
+services:
+  mission_control:
+    responsibilities: [operator_console, mission_timeline, command_approval, alarms, audit]
+  sequence_planner:
+    responsibilities: [command_sequence_authoring, validation, versioning, scheduling]
+  command_product_store:
+    immutable_products: true
+    required_fields: [product_id, version, spacecraft_id, commands, checksum, approval_state]
+  pass_scheduler:
+    responsibilities: [station_availability, contact_windows, resource_conflicts]
+  stations:
+    model: configurable-multiple-stations
+    required_state: [available, acquiring, locked, transmitting, receiving, faulted]
+    services: [uplink, downlink, tracking, station_monitor_telemetry]
+  uplink_processor:
+    responsibilities: [queue, transmit_time_tags, record_delivery_events]
+  downlink_processor:
+    responsibilities: [frame_reception, integrity_validation, telemetry_decode]
+  telemetry:
+    preserve_raw_values: true
+    versioned_dictionary: true
+    missing_data_policy: never_fabricate_zero
+    record_fields:
+      - spacecraft_id
+      - subsystem
+      - station_id
+      - received_at_utc
+      - onboard_time_ticks
+      - packet_sequence
+      - raw_value
+      - engineering_value
+      - units
+      - quality
+      - dictionary_version
+      - provenance
+  archive:
+    responsibilities: [time_series_storage, search, deterministic_replay]
+  tracking:
+    outputs: [pointing_estimates, range_observations, doppler_observations]
+    require_provenance: true
+  ui:
+    modes: [voyager_era_crt, modern_operations]
+    crt_palettes: [phosphor_blue, monochrome_green, amber]
+    aesthetic_only: true
+safety:
+  real_spacecraft_commands: disabled
+  fabricated_telemetry: prohibited
+  historical_fidelity_claim: public-source-grounded-not-exact-reproduction
+scenarios:
+  - delayed-command
+  - no-contact
+  - store-and-forward
+  - lost-telemetry
+  - bad-frame
+  - dictionary-revision
+  - station-handover
+  - deterministic-replay
+  - operator-audit
+  - onboard-autonomy
