@@ -1,0 +1,28 @@
+@startuml
+title Command Product Lifecycle (simulation)
+actor Operator
+participant "Mission Control" as MCS
+participant "Command Validator" as Validator
+participant "Pass Scheduler" as Scheduler
+participant "DSN Uplink Processor" as Uplink
+participant "Delayed Link" as Link
+participant "CCS Model" as CCS
+participant "Event/Audit Store" as Audit
+Operator -> MCS : create command product
+MCS -> Validator : validate product
+Validator --> MCS : validation report
+MCS -> Audit : record draft/validation
+MCS -> Scheduler : request contact slot
+Scheduler --> MCS : scheduled / queued
+MCS -> Uplink : release approved product
+Uplink -> Audit : record transmission start
+Uplink -> Link : transmit command
+Link -> CCS : deliver after simulated light-time
+CCS --> Link : receipt / rejection event
+Link --> Uplink : delayed acknowledgement event
+Uplink -> Audit : record receipt evidence
+note over CCS,Audit
+Transmission does not prove execution.
+Execution and later telemetry evidence are separate events.
+end note
+@enduml
