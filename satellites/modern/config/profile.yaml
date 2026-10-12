@@ -1,0 +1,6 @@
+name: modern
+cpu_width: 64
+memory: flash-nvram
+command_interface: dos-compat-plus
+telemetry: high-rate
+update_strategy: staged-versioned-rollback
