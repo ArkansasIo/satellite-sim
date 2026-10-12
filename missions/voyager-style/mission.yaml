@@ -1,0 +1,17 @@
+name: voyager-style
+description: Historically inspired deep-space mission profile
+cpu:
+  target: sat18
+  word_bits: 18
+communications:
+  bidirectional: true
+  signal_delay_model: one_way_light_time
+subsystems:
+  - power
+  - command-data-handling
+  - radio
+  - high-gain-antenna
+  - thermal
+  - attitude
+  - telemetry
+  - fault-injection
