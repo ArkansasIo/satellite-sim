@@ -1,0 +1,19 @@
+@startuml
+title Telemetry Downlink Pipeline
+participant "Spacecraft FDS Model" as FDS
+participant "Simulated Link" as Link
+participant "DSN Receiver" as Receiver
+participant "Frame Validator" as Validator
+participant "Telemetry Decoder" as Decoder
+database "Raw Archive" as Raw
+database "Engineering Archive" as Eng
+participant "Console/Alarms" as UI
+FDS -> Link : emit telemetry frame
+Link -> Receiver : deliver after delay/loss model
+Receiver -> Validator : raw frame + link metrics
+Validator -> Raw : preserve raw input
+Validator -> Decoder : valid frame + provenance
+Decoder -> Eng : decoded values + dictionary version
+Decoder -> UI : telemetry event
+UI -> UI : evaluate thresholds and quality
+@enduml
