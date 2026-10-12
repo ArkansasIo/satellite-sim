@@ -1,0 +1,17 @@
+name: modern
+description: Current-technology virtual spacecraft profile
+cpu:
+  target: sat64
+  word_bits: 64
+communications:
+  bidirectional: true
+  signal_delay_model: configurable
+subsystems:
+  - power
+  - command-data-handling
+  - software-defined-radio
+  - high-gain-antenna
+  - thermal
+  - attitude
+  - telemetry
+  - fault-injection
