@@ -1,0 +1,22 @@
+name: mvp
+modules:
+  - core/cpu
+  - core/assembler
+  - core/radio_link
+  - core/spacecraft
+  - core/ground_station
+  - core/fleet
+  - core/mission_bus
+  - voyager/command_processor
+  - voyager/telemetry_pipeline
+  - ground/api
+  - ground/mysql
+  - ground/ui
+  - satellite/onboard_storage
+  - embedded/arduino
+  - embedded/avr
+  - protocol/framing
+  - protocol/crc
+  - tests/unit
+  - tests/integration
+  - docs/architecture
