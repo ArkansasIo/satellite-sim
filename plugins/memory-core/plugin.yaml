@@ -1,0 +1,8 @@
+name: magnetic-core-memory
+version: 1.0.0
+technology: virtual-magnetic-core
+target: voyager-style
+features:
+  - persistent-word-storage
+  - word-patch
+  - boot-image
