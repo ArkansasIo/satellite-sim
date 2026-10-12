@@ -1,0 +1,13 @@
+{
+  "generated_from": "docs/staffing-costs.csv",
+  "scenarios": {
+    "MVP": {
+      "headcount": 7,
+      "annual_loaded_personnel_cost_cad": 1270000
+    },
+    "Commercial": {
+      "headcount": 17,
+      "annual_loaded_personnel_cost_cad": 3010000
+    }
+  }
+}
