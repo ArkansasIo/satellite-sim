@@ -1,0 +1,10 @@
+name: full-constellation
+clock: deterministic
+satellites:
+  - {id: VOYAGER-SIM-01, profile: voyager-style, cpu: 18}
+  - {id: VOYAGER-SIM-02, profile: voyager-style, cpu: 18}
+  - {id: MODERN-SIM-01, profile: modern, cpu: 64}
+  - {id: MODERN-SIM-02, profile: modern, cpu: 32}
+  - {id: RELAY-SIM-01, profile: modern, cpu: 8}
+ground_stations: [GS-NORTH, GS-DEEP-SPACE]
+inter_satellite_links: true
