@@ -1,0 +1,30 @@
+database:
+  name: onboard
+  backend: embedded-sql
+  authoritative: true
+  persistent: true
+
+storage:
+  boot: { medium: flash, bytes: 32768 }
+  configuration: { medium: eeprom, bytes: 1024 }
+  telemetry: { medium: flash, bytes: 65536 }
+  events: { medium: flash, bytes: 16384 }
+  sequences: { medium: flash, bytes: 16384 }
+
+telemetry:
+  buffer_records: 2048
+  downlink_policy: oldest-first
+  retain_after_downlink: true
+
+commands:
+  history_records: 512
+  reject_duplicate_sequence: true
+
+faults:
+  persistent: true
+  latch_critical: true
+
+sync:
+  protocol_version: 2
+  direction: bidirectional
+  ground_ack_required: true
