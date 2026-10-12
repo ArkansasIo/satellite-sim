@@ -1,0 +1,20 @@
+identity:
+  spacecraft_key: SAT-001
+  key_id: SIM-SAT-001-V1
+  algorithm: HMAC-SHA256
+  key_version: 1
+  key_source: external-secret
+
+commands:
+  require_authentication: true
+  reject_replay: true
+  maximum_future_tick: 30000
+  audit_security_failures: true
+
+updates:
+  require_authenticated_package: true
+  require_version_transition: true
+
+logging:
+  retain_security_events: true
+  include_failed_authentication: true
