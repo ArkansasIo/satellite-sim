@@ -1,0 +1,8 @@
+; Shared command dispatcher
+COMMAND_LOOP:
+    IN R0, 2
+    JNZ R0, COMMAND_EXEC
+    JMP COMMAND_LOOP
+COMMAND_EXEC:
+    OUT R0, 3
+    JMP COMMAND_LOOP
