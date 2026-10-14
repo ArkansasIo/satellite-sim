@@ -15,6 +15,8 @@ After the page loads, the app exposes `window.SatelliteSim`.
 | `SatelliteSim.pause()` / `resume()` | Pauses or resumes the simulation clock. |
 | `SatelliteSim.advance(seconds)` | Advances simulated time by a non-negative number of seconds. |
 
+The display controls also provide a CRT-style presentation with optional scanlines and cyan, green, amber, or blue phosphor tint. Brightness and display profile preferences are stored in browser `localStorage` when available. Use the **Export telemetry JSON** or **Export telemetry CSV** buttons to download a snapshot for every registered satellite; exports are generated locally and are not uploaded.
+
 ### Orbit parameter names
 
 ```js
@@ -45,5 +47,7 @@ Telemetry includes latitude and longitude, altitude, radial distance, speed, orb
 - Command acknowledgements are local simulated events. No radio link, server persistence, authentication, or live spacecraft interface is implemented by this static web app.
 - The altitude slider is constrained to 160–36,000 km; eccentricity is constrained to 0–0.75 for the UI.
 - The simulator is not flight-qualified software and must not be used for operational spacecraft decisions.
+
+The Pages build runs `python tools/web-simulator-tests/check.py` before building the documentation. It checks required controls, duplicate HTML IDs, the public API presence, and JavaScript syntax using Node.js.
 
 For the native C++ project and build instructions, see [Build and Run](build.md) and the [API design reference](api-reference.md).
