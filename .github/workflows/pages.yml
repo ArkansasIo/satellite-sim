@@ -26,6 +26,12 @@ jobs:
           python-version: "3.x"
       - name: Install documentation dependencies
         run: python -m pip install --upgrade pip mkdocs-material
+      - name: Set up Node.js for simulator validation
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate browser simulator
+        run: python tools/web-simulator-tests/check.py
       - name: Build documentation site
         run: mkdocs build --strict
       - name: Verify Pages entry points
