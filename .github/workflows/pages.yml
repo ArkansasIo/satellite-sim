@@ -38,6 +38,7 @@ jobs:
         run: |
           test -s site/index.html
           test -s site/404.html
+          test -s site/simulator/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
