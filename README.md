@@ -1,80 +1,63 @@
 # Satellite Sim
 
-A virtual deep-space spacecraft and ground-station simulation platform.
+A virtual deep-space spacecraft and ground-station simulation platform. This repository combines a C++20 simulator, assembly/virtual-CPU experiments, Arduino bench prototypes, telemetry/protocol documentation, and source-tree generation tools.
 
-## Implemented
+## Current project scope
 
-- 8-bit, 18-bit, 32-bit and 64-bit virtual CPU targets
-- Width-masked registers and memory
-- Assembly parser/encoder with a compact instruction set
-- Telemetry and command I/O ports
-- Bidirectional delayed radio-link simulation
-- Virtual spacecraft command processing
-- Power and antenna state
-- Ground-station command and telemetry API
-- Voyager-style and modern mission profiles
-- C++20 build with CMake
-- Unit/integration-oriented executable tests
-- Linux/macOS shell launcher and Windows PowerShell launcher
+- Virtual CPU profiles at 8, 18, 32 and 64 bits
+- A compact teaching ISA and assembly examples
+- Spacecraft, radio-link, ground-station, fleet, memory and update components
+- Telemetry and command protocol experiments
+- Arduino/AVR bench prototype scaffolding
+- MVP, commercial and extended source-scaffold profiles
+- CMake-based native build and CTest entry points
 
-## Source tree
+This is an educational simulation project. It is **not** flight-qualified software and does not control real spacecraft.
 
-```
-asm/
-  sat8/ sat18/ sat32/ sat64/       Assembly examples
+## Build and test
 
-include/satellite/
-  types.hpp                         Shared protocol/types
-  cpu.hpp                           Virtual CPU API
-  assembler.hpp                     ASM assembler API
-  radio_link.hpp                    Link simulator API
-  spacecraft.hpp                    Spacecraft API
-  ground_station.hpp                Ground station API
+Requirements: CMake 3.20+, a C++20 compiler, and Python 3 for generator tests.
 
-src/core/
-  cpu.cpp
-  assembler.cpp
-  radio_link.cpp
-  spacecraft.cpp
-  ground_station.cpp
-
-src/main.cpp                         Runnable simulation demo
-tests/test_main.cpp                  CPU + assembler verification
-
-missions/
-  voyager-style/                     Historical-inspired profile
-  modern/                            Current-technology profile
-
-protocols/                            Command/telemetry definitions
-ground-station/                       Ground console architecture
-sim/                                   Simulation architecture
-docs/                                  Architecture/protocol/file map
-tools/                                 Build and demo launchers
-```
-
-## CPU model
-
-The simulator deliberately uses an abstract CPU ABI rather than claiming that the real Voyager spacecraft used this exact instruction set. The 18-bit target is a historically inspired emulation profile; 8-bit, 32-bit and 64-bit targets provide scalable virtual hardware.
-
-## Simulation flow
-
-Ground command → radio-link delay → spacecraft command decoder → flight CPU/ASM → spacecraft subsystems → telemetry → radio-link delay → ground station.
-
-## Build
-
-```bash
+```sh
 cmake -S . -B build
-cmake --build build
+cmake --build build --parallel
 ctest --test-dir build --output-on-failure
-./build/satellite_sim
 ```
 
-Windows PowerShell:
+Run the project-generator tests:
 
-```powershell
-.\tools\run_demo.ps1
+```sh
+python -m unittest discover -s tools/project-generator/tests -p 'test_*.py'
 ```
 
-## Next implementation layer
+Run the demo on Linux/macOS with `bash tools/run_demo.sh`, or on Windows with `powershell -ExecutionPolicy Bypass -File tools/run_demo.ps1`.
 
-The architecture is ready for a richer instruction set, memory-mapped spacecraft hardware, fault injection, deterministic mission replay, packet serialization, a graphical ground-control console, and more detailed historical/current hardware profiles.
+## Project generator
+
+```sh
+python tools/project-generator/generate.py --profile mvp
+python tools/project-generator/generate.py --profile commercial
+python tools/project-generator/generate.py --profile extended
+python tools/project-generator/generate_all.py --output generated/project
+```
+
+Generated headers are **scaffolding only**. They provide deterministic placeholders and must not be mistaken for implemented mission functionality.
+
+## Layout
+
+- `include/satellite/`: public C++ interfaces
+- `src/core/`: simulator implementation
+- `tests/`: native test executables
+- `asm/` and `arduino/`: low-level and embedded experiments
+- `missions/`, `protocols/`, `ground-station/`, `sim/`: model and design material
+- `api/` and `ui/`: interface outlines
+- `tools/project-generator/`: deterministic profile-driven scaffold generator
+- `docs/`: architecture and engineering notes
+
+## Fidelity and safety notes
+
+The virtual ISA and CPU profiles are project-defined models, not claims about the exact flight-computer instruction set used by a historical spacecraft. Hardware-specific or mission-specific values should cite authoritative sources in the relevant documentation. Arduino instructions are for a low-voltage educational bench setup and must be reviewed before any physical wiring.
+
+## License
+
+This project is distributed under the MIT License; retain the license and notices with redistributed copies.
