@@ -1,0 +1,38 @@
+site_name: Satellite Sim
+site_description: Architecture, build guide, simulator reference, and engineering documentation
+site_url: https://arkansasio.github.io/satellite-sim/
+repo_url: https://github.com/ArkansasIo/satellite-sim
+repo_name: ArkansasIo/satellite-sim
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Build and Run: build.md
+      - Project Status: IMPLEMENTATION_STATUS.md
+      - Source Tree: source-tree.md
+  - Architecture:
+      - System Architecture: architecture.md
+      - Multi-Satellite Model: multi-satellite.md
+      - Data Collection: data-collection-architecture.md
+      - Memory and Updates: memory-and-updates.md
+  - Simulator Reference:
+      - API Reference: api-reference.md
+      - Assembly Reference: assembly-reference.md
+      - Protocols: protocols.md
+      - Update Protocol: update-protocol.md
+      - Security Model: security-model.md
+      - UI Reference: ui-reference.md
+  - Research:
+      - Voyager Ground System: voyager-ground-system.md
+      - Voyager Research: voyager-reproduction-research.md
+      - Budget Model: budget-model.md
