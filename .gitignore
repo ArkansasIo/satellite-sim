@@ -1,0 +1,19 @@
+# Native builds
+/build/
+/cmake-build-*/
+/CMakeFiles/
+/CMakeCache.txt
+/Testing/
+
+# Generated scaffolds and Python cache
+/generated/
+/__pycache__/
+/tools/project-generator/__pycache__/
+/tools/project-generator/tests/__pycache__/
+*.py[cod]
+
+# Editors / operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
