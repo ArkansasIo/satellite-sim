@@ -2,6 +2,10 @@
 
 A virtual deep-space spacecraft and ground-station simulation platform. This repository combines a C++20 simulator, assembly/virtual-CPU experiments, Arduino bench prototypes, telemetry/protocol documentation, and source-tree generation tools.
 
+## Browser simulator
+
+Launch the [interactive Satellite Sim Mission Control app](https://arkansasio.github.io/satellite-sim/simulator/index.html) for orbit visualization, satellite telemetry, ground-station visibility, CRT display settings, and telemetry export. This is a browser-only educational simulation; it does not control real spacecraft. See the [browser simulator API reference](docs/simulator-api.md).
+
 ## Current project scope
 
 - Virtual CPU profiles at 8, 18, 32 and 64 bits
