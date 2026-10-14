@@ -4,8 +4,8 @@ import unittest
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT / "tools" / "project-generator"))
+GENERATOR_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(GENERATOR_DIR))
 from generate import generate, module_source, safe_identifier
 
 
