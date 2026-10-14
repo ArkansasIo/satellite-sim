@@ -25,6 +25,7 @@ nav:
       - Multi-Satellite Model: multi-satellite.md
       - Data Collection: data-collection-architecture.md
       - Memory and Updates: memory-and-updates.md
+  - Browser Simulator API: simulator-api.md
   - Simulator Reference:
       - API Reference: api-reference.md
       - Assembly Reference: assembly-reference.md
